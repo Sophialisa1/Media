@@ -37,7 +37,6 @@ const notificationOff = () => {
 };
 // Ends Here
 
-
 // CONNECTING TO THE CELO EXTENSION WALLET
 const connectToWallet = async () => {
   if (window.celo) {
@@ -55,7 +54,10 @@ const connectToWallet = async () => {
 
       userWalletAddress = kit.defaultAccount;
 
-      contract = new kit.web3.eth.Contract(newsmediaAbi, newsMediaContractAddress);
+      contract = new kit.web3.eth.Contract(
+        newsmediaAbi,
+        newsMediaContractAddress
+      );
       notificationOff();
     } catch (error) {
       console.log(error);
@@ -67,7 +69,6 @@ const connectToWallet = async () => {
 };
 // ENDS HERE
 
-
 // 5. Get Logged In User Account Balance
 const userBalance = async () => {
   const celoBalance = await kit.getTotalBalance(kit.defaultAccount); // getting the celo balance of the logged in user
@@ -78,7 +79,6 @@ const userBalance = async () => {
   document.querySelector(".user-acct-balance").innerHTML = displayedBalance;
 };
 // Ends
-
 
 headerConnectWalletBtn.addEventListener("click", async function () {
   await connectToWallet();
@@ -106,10 +106,9 @@ headerReviewNewsBtn.addEventListener("click", async function () {
 });
 // ENDS HERE
 
-
-
 // NEWS UPLOAD
-const uploadNewsBtn = document.querySelector(".news-btn button");
+const uploadNewsBtn = document.querySelector("#uploadNewsButton");
+// const uploadNewsBtn = document.querySelector(".news-btn button");
 const uploadNewsForm = document.querySelector(".user-news");
 
 uploadNewsBtn.addEventListener("click", async function () {
@@ -129,7 +128,7 @@ uploadNewsBtn.addEventListener("click", async function () {
     newsImage,
     newsNewsContent,
     newsPrice,
-    new BigNumber(newsPrice).shiftedBy(ERC20_DECIMALS).toString()
+    new BigNumber(newsPrice).shiftedBy(ERC20_DECIMALS).toString(),
   ];
 
   try {
@@ -179,9 +178,7 @@ displayedNewsContainer.addEventListener("click", async function (e) {
           .buyNews(newsIndex)
           .send({ from: kit.defaultAccount });
 
-        notification(
-          `Successfully purchased ${news[newsIndex].title} news`
-        );
+        notification(`Successfully purchased ${news[newsIndex].title} news`);
 
         uploadMedia();
         userBalance();
@@ -267,7 +264,7 @@ const identiconTemplate = (walletAddress) => {
     .create({
       seed: walletAddress,
       size: 8,
-      scale: 16
+      scale: 16,
     })
     .toDataURL();
 
@@ -279,10 +276,6 @@ const identiconTemplate = (walletAddress) => {
   `;
 };
 // Ends Here
-
-
-
-
 
 // 6. Stored Media Function
 const uploadMedia = async () => {
@@ -305,7 +298,7 @@ const uploadMedia = async () => {
         newContent: savedMedia[5],
         price: new BigNumber(savedMedia[6]),
         purchased: savedMedia[7],
-        isDeleted
+        isDeleted,
       });
       reject((err) => {
         console.log("Error: " + err);
@@ -351,4 +344,3 @@ async function deleteMedia(index) {
   }
 }
 // Ends Here
-
