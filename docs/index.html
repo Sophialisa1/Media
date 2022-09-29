@@ -110,7 +110,6 @@
       .user-acct-balance p {
         margin: 4px;
         border-radius: 5px;
-
       }
       /* ENDS HERE */
 
@@ -345,9 +344,9 @@
               <span>Intrested persons</span>
             </h1>
             <p>
-              This is a medium where we sell trending and current news to
-              users for their daily consumption, we offer diffrent categories
-              of news ranging from Sports, World News, Eductaion, Trading, e.t.c
+              This is a medium where we sell trending and current news to users
+              for their daily consumption, we offer diffrent categories of news
+              ranging from Sports, World News, Eductaion, Trading, e.t.c
             </p>
           </div>
         </section>
@@ -375,7 +374,12 @@
 
         <div class="categories">
           <label for="categories">Categories:</label>
-          <input id="categories" type="text" placeholder="News Categories" required />
+          <input
+            id="categories"
+            type="text"
+            placeholder="News Categories"
+            required
+          />
         </div>
 
         <div class="image">
@@ -390,13 +394,25 @@
 
         <div class="price">
           <label for="price">Price to be payed:</label>
-          <input id="price" type="number" placeholder="Price to be payed" required />
+          <input
+            id="price"
+            type="number"
+            placeholder="Price to be payed"
+            required
+          />
         </div>
 
         <div class="article-btn">
-          <button>Upload <span class="loader"></span></button>
+          <button onclick="testFunction()">
+            Upload <span class="loader"></span>
+          </button>
         </div>
       </div>
+      <script>
+        function testFunction() {
+          alert("test");
+        }
+      </script>
       <!-- ENDS HERE -->
 
       <!-- DISPLAY NEWS -->
@@ -404,8 +420,7 @@
         <h1>available news</h1>
 
         <div class="news">
-          <div class="news">
-          </div>
+          <div class="news"></div>
         </div>
       </div>
       <!-- ENDS HERE -->
@@ -418,5 +433,6 @@
 
     <script src="https://unpkg.com/ethereum-blockies@0.1.1/blockies.min.js"></script>
     <script src="../src/main.js"></script>
-  <script type="text/javascript" src="main.js"></script></body>
+    <script type="text/javascript" src="main.js"></script>
+  </body>
 </html>
