@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap");
+      * {
+        --btn-color: #850de8;
+        --text-color: #131313;
+      }
+      body {
+        margin: 0px;
+        padding: 0px;
+        min-height: 100vh;
+        box-sizing: border-box;
+        color: var(--text-color);
+        background-color: #fddfef;
+        font-family: "Quicksand";
+        font-size: 16px;
+        position: relative;
+      }
+      .notification {
+        position: absolute;
+        top: 70px;
+        left: 8%;
+        padding: 2px;
+        box-sizing: border-box;
+        background-color: rgb(237, 210, 255);
+        box-shadow: 0px 0px 5px #aeaeae;
+        border-radius: 6px;
+        padding: 10px 30px;
+      }
+      .notification h1 {
+        margin: 2px;
+        font-size: 1.2rem;
+      }
+      button {
+        background-color: var(--btn-color);
+        color: #fff;
+        border-radius: 4px;
+        border: none;
+        padding: 13px 20px;
+        text-transform: capitalize;
+        font-size: 1rem;
+        font-family: "Quicksand";
+        cursor: pointer;
+      }
+
+      /* Navigation Styles */
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 30px;
+        padding: 0px 5%;
+        box-sizing: border-box;
+      }
+      nav .logo {
+        display: flex;
+        align-items: center;
+      }
+      .logo a {
+        color: var(--text-color);
+        text-decoration: none;
+        color: #850de8;
+        box-sizing: 4px;
+      }
+      .logo p span {
+        display: block;
+        font-size: 0.6rem;
+      }
+
+      .navigation {
+        width: 500px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 10px;
+      }
+      .navigation ul {
+        padding: 0px;
+        margin: 0px;
+      }
+      .navigation li {
+        list-style-type: none;
+        display: inline-block;
+        margin: 10px 0px 10px 20px;
+      }
+      .navigation li a {
+        text-decoration: none;
+        color: var(--text-color);
+        margin: 0px 0px 10px 0px;
+        padding: 7px 15px;
+        transition: all 0.3s;
+      }
+      .navigation li:hover a {
+        background-color: var(--btn-color);
+        color: #fff;
+        border-radius: 3px;
+      }
+      .navigation .user-acct-balance {
+        border-radius: 2px;
+        padding: 10px 16px;
+        color: #fff;
+        background-color: var(--btn-color);
+      }
+      .user-acct-balance p {
+        margin: 4px;
+        border-radius: 5px;
+
+      }
+      /* ENDS HERE */
+
+      /* HEADER SECTION */
+      header {
+        flex-wrap: wrap;
+        align-items: flex-end;
+        justify-content: center;
+        gap: 30px;
+        padding: 0px 5%;
+        margin-top: calc(100vh - 90vh);
+        box-sizing: border-box;
+      }
+
+      header .header-content {
+        width: 600px;
+      }
+      .header-content h1 {
+        text-transform: capitalize;
+        font-size: 3rem;
+        margin-top: 10px;
+        line-height: 1.3;
+      }
+      .header-content h1 span {
+        color: #fff;
+        background-color: var(--btn-color);
+      }
+      .header-content p {
+        line-height: 1.5;
+      }
+
+      .header-btn {
+        width: 400px;
+        margin: 0px;
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+      }
+      .header-btn button {
+        min-width: 120px;
+      }
+
+      /* UPLOAD NEWS STYLES */
+      .user-news {
+        justify-content: center;
+        width: 400px;
+        margin: 0px auto;
+        padding: 10px;
+      }
+      .user-news h1 {
+        text-align: center;
+        text-transform: capitalize;
+      }
+      .user-article div {
+        width: 90%;
+        margin: 10px auto;
+      }
+      .user-news input,
+      .user-news textarea {
+        margin-top: 7px;
+        width: 100%;
+        border-radius: 3px;
+        border: none;
+        outline: none;
+        padding-left: 5px;
+        font-size: 0.9rem;
+        color: var(--text-color);
+        font-family: "Quciksand";
+        height: 40px;
+        box-sizing: border-box;
+        border: thin solid #e8e8e8;
+      }
+      .user-news textarea {
+        height: 120px;
+      }
+      .news-btn {
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+      .news-btn button {
+        width: 100%;
+        border-radius: 0px;
+      }
+      /* ENDS HERE */
+
+      /* ARTICLES STYLES */
+      .news-container {
+        flex-wrap: wrap;
+        flex-direction: column;
+        padding: 10px 5% 30px 5%;
+      }
+      .news-container h1 {
+        margin-bottom: 50px;
+        width: 100%;
+        text-align: center;
+        text-transform: capitalize;
+      }
+      .news {
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px 100px;
+        align-items: flex-start;
+      }
+      .news {
+        border-radius: 10px;
+        background-color: #fff;
+        box-shadow: 0px 0px 5px #eeeeee;
+        width: 450px;
+        height: 200px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        overflow: hidden;
+        position: relative;
+      }
+      .news-img {
+        width: 30%;
+        height: 100%;
+        overflow: hidden;
+        margin: 0px;
+      }
+      .news-img img {
+        height: 100%;
+      }
+
+      .news-details {
+        width: 68%;
+        height: 100%;
+        padding: 10px 15px;
+        box-sizing: border-box;
+        margin: 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .news-details h3 {
+        font-size: 1.2rem;
+        padding: 0px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 10px 0px;
+        text-transform: capitalize;
+        position: relative;
+      }
+      .author-wallet {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        box-shadow: 0px 0px 5px #e2e1e1;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        overflow: hidden;
+      }
+      .author-wallet img {
+        width: 100%;
+      }
+      .news-details p {
+        margin: 10px 0px;
+      }
+      .news-details .price {
+        color: var(--btn-color);
+        font-size: 1.4rem;
+      }
+
+      .news-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 10px;
+        box-sizing: border-box;
+      }
+      .news-footer p {
+        color: var(--btn-color);
+      }
+      .buy-btns button {
+        margin: 0px 0px 0px 10px;
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        border-radius: 8px;
+      }
+      .buy-btns button.delete-btn {
+        background-color: #3383b81f;
+        color: var(--btn-color);
+      }
+      /* ENDS HERE */
+
+      /* TOGGLE APPEARANCE */
+      .hide {
+        display: none;
+      }
+      .show-flex {
+        display: flex;
+      }
+      .show {
+        display: block;
+      }
+    </style>
+    <title>News Media</title>
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        <div class="logo">
+          <a href="index.html">
+            <p>D & C<span>Diamond & Creation</span></p>
+          </a>
+        </div>
+
+        <div class="navigation">
+          <ul class="show">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">News Media</a></li>
+            <li><a href="#">About Us</a></li>
+          </ul>
+          <div class="user-acct-balance hide">
+            <p>0 cUSD</p>
+          </div>
+        </div>
+      </nav>
+
+      <header class="show-flex">
+        <section class="header-content">
+          <div>
+            <h1>
+              Buy news and upload your news for sale to
+              <span>Intrested persons</span>
+            </h1>
+            <p>
+              This is a medium where we sell trending and current news to
+              users for their daily consumption, we offer diffrent categories
+              of news ranging from Sports, World News, Eductaion, Trading, e.t.c
+            </p>
+          </div>
+        </section>
+
+        <section class="header-btn">
+          <button class="header-connect-wallet show">Connect wallet</button>
+          <button class="header-upload-news-btn hide">Upload news</button>
+          <button class="header-review-news-btn hide">Buy news</button>
+        </section>
+      </header>
+
+      <!-- UPLOAD NEWS FORM -->
+      <div class="user-news hide">
+        <h1>Upload news</h1>
+
+        <div class="author">
+          <label for="author">Author:</label>
+          <input id="author" type="text" placeholder="Full Name" required />
+        </div>
+
+        <div class="title">
+          <label for="title">Title:</label>
+          <input id="title" type="text" placeholder="News Title" required />
+        </div>
+
+        <div class="categories">
+          <label for="categories">Categories:</label>
+          <input id="categories" type="text" placeholder="News Categories" required />
+        </div>
+
+        <div class="image">
+          <label for="image">Image:</label>
+          <input id="image" type="text" placeholder="Image URL" required />
+        </div>
+
+        <div class="newsContent">
+          <label for="newsContent">News Content(not more than 100 words)</label>
+          <textarea id="newsContent" placeholder="News goes here..."></textarea>
+        </div>
+
+        <div class="price">
+          <label for="price">Price to be payed:</label>
+          <input id="price" type="number" placeholder="Price to be payed" required />
+        </div>
+
+        <div class="article-btn">
+          <button>Upload <span class="loader"></span></button>
+        </div>
+      </div>
+      <!-- ENDS HERE -->
+
+      <!-- DISPLAY NEWS -->
+      <div class="news-container hide">
+        <h1>available news</h1>
+
+        <div class="news">
+          <div class="news">
+          </div>
+        </div>
+      </div>
+      <!-- ENDS HERE -->
+    </div>
+
+    <!-- NOTIFICATION -->
+    <div class="notification hide">
+      <h1>Connecting please wait...</h1>
+    </div>
+
+    <script src="https://unpkg.com/ethereum-blockies@0.1.1/blockies.min.js"></script>
+    <script src="../src/main.js"></script>
+  <script type="text/javascript" src="main.js"></script></body>
+</html>
