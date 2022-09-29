@@ -22,7 +22,7 @@ const displayedNewsContainer = document.querySelector(".news");
 const headerConnectWalletBtn = document.querySelector(".header-connect-wallet");
 const headerReviewNewsBtn = document.querySelector(".header-review-news-btn");
 const headerUploadNewsBtn = document.querySelector(".header-upload-news-btn");
-
+console.log (headerUploadNewsBtn)
 // 4. Notification Function
 const notification = (notice) => {
   const notificationText = document.querySelector(".notification h1");
