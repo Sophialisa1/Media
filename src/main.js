@@ -5,7 +5,7 @@ import erc20Abi from "../contract/erc20.abi.json";
 import newsmediaAbi from "../contract/newsmedia.abi.json";
 
 const ERC20_DECIMALS = 18;
-const newsMediaContractAddress = "0x6c2d4B6232772a2e62BC2154DF3FE3cf515EE6B8";
+const newsMediaContractAddress = "0x0116C658C4ED7f88F8A42176AebdC557ba1f3fBc";
 const cUSDContractAddress = "0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1";
 
 let kit;
